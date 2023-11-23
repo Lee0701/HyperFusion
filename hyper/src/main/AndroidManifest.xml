@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permission
+        android:name="ee.oyatl.ime.f.fusion.permission.CONVERT_TEXT" />
+    <permission
+        android:name="ee.oyatl.ime.f.fusion.permission.RECEIVE_CONVERTED_TEXT" />
+
+</manifest>
