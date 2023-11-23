@@ -9,12 +9,16 @@ import ee.oyatl.ime.f.fusion.Constants.EXTRA_TEXT
  * Converter side, receives request from client and pass it to the conversion engine
  */
 class ConversionRequestBroadcastReceiver(
-    private val converter: FusionConverter
+    private val listener: Listener
 ): BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         context ?: return
         intent ?: return
         val text = intent.getStringExtra(EXTRA_TEXT) ?: return
-        converter.convert(text)
+        listener.onText(text)
+    }
+
+    interface Listener {
+        fun onText(text: String)
     }
 }
