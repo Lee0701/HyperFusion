@@ -7,7 +7,7 @@ import ee.oyatl.ime.f.fusion.Constants.EXTRA_TEXT
 import ee.oyatl.ime.f.fusion.Constants.PERMISSION_CONVERT_TEXT
 
 /**
- * Client side, requests text conversion to Converter
+ * Client side to Converter side, requests text conversion
  */
 object ConversionRequestBroadcaster {
     fun broadcast(context: Context, text: String) {

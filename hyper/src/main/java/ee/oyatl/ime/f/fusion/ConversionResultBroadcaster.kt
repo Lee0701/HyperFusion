@@ -7,7 +7,7 @@ import ee.oyatl.ime.f.fusion.Constants.EXTRA_CANDIDATES
 import ee.oyatl.ime.f.fusion.Constants.PERMISSION_RECEIVE_CONVERTED_TEXT
 
 /**
- * Converter side, broadcasts converted result to client
+ * Converter side to Client side, broadcasts converted result to client
  */
 object ConversionResultBroadcaster {
     fun broadcast(context: Context, candidates: List<List<String>>) {
