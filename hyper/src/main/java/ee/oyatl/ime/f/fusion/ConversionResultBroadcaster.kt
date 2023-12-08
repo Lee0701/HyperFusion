@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import ee.oyatl.ime.f.fusion.Constants.ACTION_CONVERT_TEXT_RESULT
 import ee.oyatl.ime.f.fusion.Constants.EXTRA_CANDIDATES
+import ee.oyatl.ime.f.fusion.Constants.EXTRA_VERSION
 import ee.oyatl.ime.f.fusion.Constants.PERMISSION_RECEIVE_CONVERTED_TEXT
 
 /**
@@ -15,6 +16,7 @@ object ConversionResultBroadcaster {
             action = ACTION_CONVERT_TEXT_RESULT
             val result = ArrayList(candidates.map { item -> item.joinToString("\t") })
             putExtra(EXTRA_CANDIDATES, result)
+            putExtra(EXTRA_VERSION, context.resources.getInteger(R.integer.hyperfusion_version))
         }
         context.sendBroadcast(intent, PERMISSION_RECEIVE_CONVERTED_TEXT)
     }

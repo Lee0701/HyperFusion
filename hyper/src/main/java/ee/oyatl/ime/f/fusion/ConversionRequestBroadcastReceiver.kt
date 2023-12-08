@@ -14,11 +14,14 @@ class ConversionRequestBroadcastReceiver(
     override fun onReceive(context: Context?, intent: Intent?) {
         context ?: return
         intent ?: return
-        val text = intent.getStringExtra(EXTRA_TEXT) ?: return
-        listener.onText(text)
+        val receivedVersion = intent.getIntExtra(Constants.EXTRA_VERSION, 0)
+        if(receivedVersion >= 1) {
+            val text = intent.getStringExtra(EXTRA_TEXT) ?: return
+            listener.onText(text)
+        }
     }
 
     interface Listener {
-        fun onText(text: String)
+        fun onText(text: String) = Unit
     }
 }

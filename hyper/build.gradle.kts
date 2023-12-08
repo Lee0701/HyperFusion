@@ -6,11 +6,12 @@ plugins {
 
 android {
     namespace = "ee.oyatl.ime.f.fusion"
+    version = "1"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 14
-
+        resValue("integer", "hyperfusion_version", version as String)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,7 +38,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "ee.oyatl.ime.f.fusion"
                 artifactId = "hyper"
-                version = "0.0.1"
+                version = project.version as String
             }
         }
     }
