@@ -1,0 +1,42 @@
+name: Create Release on GitHub
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v3.6.0
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Set timezone
+        uses: szenius/set-timezone@v1.2
+        with:
+          timezoneMacos: "Asia/Seoul"
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Build Release AAR
+        id: buildBundle
+        run: ./gradlew bundleReleaseAar
+
+      - name: Create a Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            fusion/build/outputs/aar/fusion-release.aar
