@@ -36,8 +36,8 @@ afterEvaluate {
         publications {
             create<MavenPublication>("release") {
                 from(components["release"])
-                groupId = "ee.oyatl.ime.f.fusion"
-                artifactId = "hyper"
+                groupId = "ee.oyatl.ime.f"
+                artifactId = "fusion"
                 version = project.version as String
             }
         }

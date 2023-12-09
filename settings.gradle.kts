@@ -15,5 +15,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "HyperFusion"
-include(":hyper")
+include(":fusion")
  
