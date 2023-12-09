@@ -40,5 +40,6 @@ jobs:
       - name: Create a Release
         uses: softprops/action-gh-release@v1
         with:
+          token: ${{ secrets.GH_TOKEN }}
           files: |
             fusion/build/outputs/aar/fusion-release.aar
